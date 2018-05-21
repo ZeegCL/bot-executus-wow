@@ -34,7 +34,6 @@ class CharacterCmd extends ChatCommand {
                 resp.addField(ExecutusBot.lang.wow.gender, char.gender);
                 resp.addField(ExecutusBot.lang.wow.class, char.class);
                 resp.addField(ExecutusBot.lang.wow.level, char.level);
-                resp.setThumbnail('https://cdn.freebiesupply.com/logos/large/2x/world-of-warcraft-logo-png-transparent.png');
 
                 ExecutusBot.chatClient.sendRichMessage(req.channel, resp);
             })

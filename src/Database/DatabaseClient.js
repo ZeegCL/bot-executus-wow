@@ -12,7 +12,6 @@ class DatabaseClient {
      */
     constructor(database) {
         this._database = database;
-        console.log(`database.${this._database}.host`);
         this._connection = mysql.createConnection({
             host: ExecutusBot.config.getValue(`database.${this._database}.host`, 'localhost'),
             user: ExecutusBot.config.getValue(`database.${this._database}.user`, 'root'),

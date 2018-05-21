@@ -47,7 +47,6 @@ class DiscordClient {
         embed.setColor('#ff5722');
         embed.setThumbnail('https://d1u5p3l4wpay3k.cloudfront.net/wowpedia/c/c7/Executus.jpg');
         embed.setDescription(message);
-        embed.setTimestamp();
 
         this.sendRichMessage(channel, embed);
     }
@@ -65,6 +64,11 @@ class DiscordClient {
                     console.error('Discord: Error getting the default channel!');
                 });
         }
+
+        if (embedMsg.thumbnail == undefined) {
+            embedMsg.setThumbnail('https://cdn.freebiesupply.com/logos/large/2x/world-of-warcraft-logo-png-transparent.png');
+        }
+        embedMsg.setTimestamp();
 
         channel.send({embed: embedMsg})
             .catch((err) => {

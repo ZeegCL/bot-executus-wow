@@ -16,7 +16,11 @@
         },
         "char": {
             "missing_name": "You must specify a character's name",
-            "not_found": "Sorry, I couldn't find that character"
+            "not_found": "Sorry, I couldn't find that character."
+        },
+        "guild": {
+            "missing_name": "You must specify a guild's name",
+            "not_found": "Sorry, I couldn't find that guild."
         }
     },
     "wow": {
@@ -24,6 +28,12 @@
         "race": "Race",
         "gender": "Gender",
         "class": "Class",
-        "level": "Level"
+        "level": "Level",
+        "members": "Members",
+        "leader": "Leader",
+        "faction": "Faction",
+        "created": "Created on",
+        "alliance": "Alliance",
+        "horde": "Horde"
     }
 }
