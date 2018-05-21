@@ -1,0 +1,34 @@
+{
+  "name": "executusbot",
+  "version": "1.0.0",
+  "description": "A multi purpose bot to manage AzerothCore servers on Discord",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deku/ExecutusBot.git"
+  },
+  "keywords": [
+    "bot",
+    "azerothcore",
+    "discord"
+  ],
+  "author": "José González",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Deku/ExecutusBot/issues"
+  },
+  "homepage": "https://github.com/Deku/ExecutusBot#readme",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "mysql": "^2.15.0",
+    "node-cache": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1"
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "auth.host": "localhost",
+    "auth.database": "auth",
+    "auth.port": "3306",
+    "auth.user": "root",
+    "auth.password": "root",
+
+    "characters.host": "localhost",
+    "characters.database": "sylvanas",
+    "characters.port": "3306",
+    "characters.user": "root",
+    "characters.password": "root",
+
+    "world.host": "localhost",
+    "world.database": "world",
+    "world.port": "3306",
+    "world.user": "root",
+    "world.password": "root"
+}

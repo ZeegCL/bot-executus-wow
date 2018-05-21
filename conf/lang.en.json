@@ -1,0 +1,29 @@
+{
+    "cli": {
+        "ready": ">> The bot is ready. Type 'help' to see the options available.\n",
+        "shutdown": "The bot is shutting down now."
+    },
+    "bot": {
+        "hello": "The runes of warding have been destroyed! Hunt down the infidels, my brethren!"
+    },
+    "discord": {
+        "logged_in": "Successfully logged in!",
+        "logged_out": "Logged out from Discord!"
+    },
+    "cmd": {
+        "help": {
+            "list": "**Currently supported commands:** "
+        },
+        "char": {
+            "missing_name": "You must specify a character's name",
+            "not_found": "Sorry, I couldn't find that character"
+        }
+    },
+    "wow": {
+        "name": "Name",
+        "race": "Race",
+        "gender": "Gender",
+        "class": "Class",
+        "level": "Level"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "extends": "google",
+    "parserOptions": {
+        "ecmaVersion": 2017
+    },
+    "rules": {
+        "linebreak-style": ["error", "windows"],
+        "max-len": ["error", 150]
+    }
+}
