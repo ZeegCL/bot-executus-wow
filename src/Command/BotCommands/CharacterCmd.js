@@ -22,7 +22,7 @@ class CharacterCmd extends ChatCommand {
      */
     execute(req) {
         if (req.args.length == 0) {
-            ExecutusBot.chatClient.sendMessage(req.channel, ExecutusBot.lang.cmd.char.missing_name);
+            ExecutusBot.chatClient.sendMessage(req.channel, ExecutusBot.lang.text('error.missing_name'));
             return;
         }
 
@@ -30,16 +30,16 @@ class CharacterCmd extends ChatCommand {
             .then((char) => {
                 let resp = new Discord.RichEmbed();
                 resp.setTitle(char.name);
-                resp.addField(ExecutusBot.lang.wow.race, char.race);
-                resp.addField(ExecutusBot.lang.wow.gender, char.gender);
-                resp.addField(ExecutusBot.lang.wow.class, char.class);
-                resp.addField(ExecutusBot.lang.wow.level, char.level);
+                resp.addField(ExecutusBot.lang.text('common.race'), char.race);
+                resp.addField(ExecutusBot.lang.text('common.gender'), char.gender);
+                resp.addField(ExecutusBot.lang.text('common.class'), char.class);
+                resp.addField(ExecutusBot.lang.text('common.level'), char.level);
 
                 ExecutusBot.chatClient.sendRichMessage(req.channel, resp);
             })
             .catch((err) => {
                 console.log(err.message);
-                ExecutusBot.chatClient.sendMessage(req.channel, ExecutusBot.lang.cmd.char.not_found);
+                ExecutusBot.chatClient.sendMessage(req.channel, ExecutusBot.lang.text('error.not_found'));
             });
     }
 }

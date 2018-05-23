@@ -1,33 +1,23 @@
 {
     "cli": {
         "ready": ">> The bot is ready. Type 'help' to see the options available.\n",
-        "shutdown": "The bot is shutting down now."
+        "shutdown": ">> The bot is shutting down now."
     },
     "bot": {
         "hello": "The runes of warding have been destroyed! Hunt down the infidels, my brethren!"
     },
     "discord": {
-        "logged_in": "Successfully logged in!",
-        "logged_out": "Logged out from Discord!"
+        "logged_in": "Discord: Successfully logged in!",
+        "logged_out": "Discord: Logged out!"
     },
-    "cmd": {
-        "help": {
-            "list": "**Currently supported commands:** "
-        },
-        "char": {
-            "missing_name": "You must specify a character's name",
-            "not_found": "Sorry, I couldn't find that character."
-        },
-        "guild": {
-            "missing_name": "You must specify a guild's name",
-            "not_found": "Sorry, I couldn't find that guild."
-        },
-        "ateam": {
-            "missing_name": "You must specify a team's name",
-            "not_found": "Sorry, I couldn't find that team."
-        }
+    "help": {
+        "list": "**Currently supported commands:** "
     },
-    "wow": {
+    "error": {
+        "missing_name": "You must specify a name",
+        "not_found": "Sorry, I couldn't find any results matching those parameters."
+    },
+    "common": {
         "name": "Name",
         "race": "Race",
         "gender": "Gender",

@@ -3,6 +3,7 @@ const DiscordClient = require('./Client/DiscordClient');
 const CommandMgr = require('./Core/CommandMgr');
 const ConfigMgr = require('./Core/ConfigMgr');
 const CharactersDatabase = require('./Database/CharactersDatabase');
+const LanguageMgr = require('./Core/LanguageMgr');
 /**
  * Defines the bot
  * @class ExecutusBot
@@ -17,7 +18,7 @@ class ExecutusBot {
         this.chatClient = null;
         this.cli = null;
         this.db = {};
-        this.lang = {};
+        this.lang = new LanguageMgr();
         this.config = new ConfigMgr();
     }
 
@@ -34,13 +35,13 @@ class ExecutusBot {
             this.config.loadConfig('bot', './conf/bot.conf.json');
             this.config.loadConfig('discord', './conf/discord.conf.json');
             this.config.loadConfig('database', './conf/database.conf.json');
-
-            // Load language strings
-            this.lang = require(`../conf/lang.${this.config.getValue('bot.lang')}.json`);
         } catch (ex) {
             console.error(ex);
             this.shutdown();
         }
+
+        // Load texts
+        this.lang.setLocale(this.config.getValue('bot.lang'));
 
         // Create CLI
         this.cli = ReadLine.createInterface({
@@ -61,9 +62,9 @@ class ExecutusBot {
                 this.chatClient.registerHandler('message', (message) => {
                     this.commandMgr.handleMessage(message);
                 });
-                this.chatClient.sendMessage(null, this.lang.bot.hello);
+                this.chatClient.sendMessage(null, this.lang.text('bot.hello'));
 
-                this.cli.question(this.lang.cli.ready, (input) => {
+                this.cli.question(this.lang.text('cli.ready'), (input) => {
                     switch (input.toLowerCase()) {
                         case 'exit':
                             this.shutdown();
@@ -84,7 +85,7 @@ class ExecutusBot {
      * @memberof ExecutusBot
      */
     shutdown() {
-        console.log(this.lang.cli.shutdown);
+        console.log(this.lang.text('cli.shutdown'));
         if (global.ExecutusBot) {
             global.ExecutusBot = undefined;
             delete global.ExecutusBot;
