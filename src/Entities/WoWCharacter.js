@@ -26,11 +26,11 @@ class WoWCharacter {
         return this._name;
     }
     /**
-     * @param {any} val
+     * @param {any} value
      * @memberof WoWCharacter
      */
-    set name(val) {
-        this._name = val;
+    set name(value) {
+        this._name = value;
     }
 
     /**
@@ -41,14 +41,14 @@ class WoWCharacter {
         return this._race;
     }
     /**
-     * @param {any} val
+     * @param {any} value
      * @memberof WoWCharacter
      */
-    set race(val) {
-        if (!isNaN(val)) {
-            val = parseInt(val);
-            if (val > 0 && val <= RACES.length) {
-                this._race = RACES[val-1];
+    set race(value) {
+        if (!isNaN(value)) {
+            value = parseInt(value);
+            if (value > 0 && value <= RACES.length) {
+                this._race = RACES[value-1];
             }
         }
     }
@@ -61,14 +61,14 @@ class WoWCharacter {
         return this._class;
     }
     /**
-     * @param {any} val
+     * @param {any} value
      * @memberof WoWCharacter
      */
-    set class(val) {
-        if (!isNaN(val)) {
-            val = parseInt(val);
-            if (val > 0 && val <= CLASSES.length) {
-                this._class = CLASSES[val-1];
+    set class(value) {
+        if (!isNaN(value)) {
+            value = parseInt(value);
+            if (value > 0 && value <= CLASSES.length) {
+                this._class = CLASSES[value-1];
             }
         }
     }
@@ -81,14 +81,14 @@ class WoWCharacter {
         return this._gender;
     }
     /**
-     * @param {any} val
+     * @param {any} value
      * @memberof WoWCharacter
      */
-    set gender(val) {
-        if (!isNaN(val)) {
-            if (val == 0) {
+    set gender(value) {
+        if (!isNaN(value)) {
+            if (value == 0) {
                 this._gender = 'Male';
-            } else if (val == 1) {
+            } else if (value == 1) {
                 this._gender = 'Female';
             }
         }
@@ -102,12 +102,12 @@ class WoWCharacter {
         return this._level;
     }
     /**
-     * @param {any} val
+     * @param {any} value
      * @memberof WoWCharacter
      */
-    set level(val) {
-        if (!isNaN(val)) {
-            this._level = parseInt(val);
+    set level(value) {
+        if (!isNaN(value)) {
+            this._level = parseInt(value);
         }
     }
 }

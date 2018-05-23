@@ -21,6 +21,10 @@
         "guild": {
             "missing_name": "You must specify a guild's name",
             "not_found": "Sorry, I couldn't find that guild."
+        },
+        "ateam": {
+            "missing_name": "You must specify a team's name",
+            "not_found": "Sorry, I couldn't find that team."
         }
     },
     "wow": {
@@ -34,6 +38,10 @@
         "faction": "Faction",
         "created": "Created on",
         "alliance": "Alliance",
-        "horde": "Horde"
+        "horde": "Horde",
+        "arenaTeamType": "Ladder Type",
+        "captain": "Captain",
+        "seasonGames": "Matches played (this season)",
+        "seasonWins": "Matches won (this season)"
     }
 }
