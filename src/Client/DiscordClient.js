@@ -48,16 +48,17 @@ class DiscordClient {
         embed.setThumbnail('https://d1u5p3l4wpay3k.cloudfront.net/wowpedia/c/c7/Executus.jpg');
         embed.setDescription(message);
 
-        this.sendRichMessage(channel, embed);
+        this.sendRichMessage(channel, embed, true);
     }
 
     /**
      * Sends a RichEmbed msg
      * @param {any} channel
      * @param {any} embedMsg
+     * @param {boolean} timed
      * @memberof DiscordClient
      */
-    async sendRichMessage(channel, embedMsg) {
+    async sendRichMessage(channel, embedMsg, timed = false) {
         if (channel == undefined) {
             channel = await getDefaultChannel(this._client.guilds.first())
                 .catch((err) => {
@@ -71,6 +72,11 @@ class DiscordClient {
         embedMsg.setTimestamp();
 
         channel.send({embed: embedMsg})
+            .then((msg) => {
+                if (timed) {
+                    msg.delete(ExecutusBot.config.getValue('discord.message_timeout', 10) * 1000);
+                }
+            })
             .catch((err) => {
                 console.error('Discord: Couldn\'t send the message!', err.message);
             });

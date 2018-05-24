@@ -1,4 +1,5 @@
 {
     "token": "MySuperTokenThatIGotFromDiscordApi",
-    "prefix": "!"
+    "prefix": "!",
+    "message_timeout": 10
 }
