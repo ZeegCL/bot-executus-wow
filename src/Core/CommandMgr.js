@@ -50,6 +50,7 @@ class CommandMgr {
      */
     parseCommand(message) {
         let request = new CommandRequest(message);
+        message.delete(ExecutusBot.config.getValue('discord.message_timeout', 10) * 1000);
         console.log('Handling call to command:', request.commandLabel);
 
         if (request.commandLabel === 'help') {
