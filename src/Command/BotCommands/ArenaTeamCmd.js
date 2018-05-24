@@ -22,7 +22,7 @@ class ArenaTeamCmd extends ChatCommand {
      */
     execute(req) {
         if (req.args.length == 0) {
-            ExecutusBot.chatClient.sendMessage(req.channel, ExecutusBot.lang.text('error.missing_name'));
+            ExecutusBot.chatClient.sendMessage(req.channel, Lang._('error.missing_name'));
             return;
         }
 
@@ -30,22 +30,22 @@ class ArenaTeamCmd extends ChatCommand {
             .then((ateam) => {
                 let embed = new Discord.RichEmbed();
                 embed.setTitle(ateam.name);
-                embed.addField(ExecutusBot.lang.text('common.arenaTeamType'), ateam.type);
-                embed.addField(ExecutusBot.lang.text('common.seasonGames'), ateam.seasonGames, true);
-                embed.addField(ExecutusBot.lang.text('common.seasonWins'), ateam.seasonWins, true);
+                embed.addField(Lang._('common.arenaTeamType'), ateam.type);
+                embed.addField(Lang._('common.seasonGames'), ateam.seasonGames, true);
+                embed.addField(Lang._('common.seasonWins'), ateam.seasonWins, true);
                 embed.addBlankField();
-                embed.addField(ExecutusBot.lang.text('common.captain'), ateam.captain, true);
+                embed.addField(Lang._('common.captain'), ateam.captain, true);
                 let members = '';
                 ateam.members.forEach((m) => {
                     return members += `- ${m.name} (${m.race} ${m.class})\r\n`;
                 });
-                embed.addField(ExecutusBot.lang.text('common.members'), members, true);
+                embed.addField(Lang._('common.members'), members, true);
 
                 ExecutusBot.chatClient.sendRichMessage(req.channel, embed);
             })
             .catch((err) => {
                 console.log(err.message);
-                ExecutusBot.chatClient.sendMessage(req.channel, ExecutusBot.lang.text('error.not_found'));
+                ExecutusBot.chatClient.sendMessage(req.channel, Lang._('error.not_found'));
             });
     }
 }

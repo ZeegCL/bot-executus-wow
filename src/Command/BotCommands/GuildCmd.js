@@ -22,7 +22,7 @@ class GuildCmd extends ChatCommand {
      */
     execute(req) {
         if (req.args.length == 0) {
-            ExecutusBot.chatClient.sendMessage(req.channel, ExecutusBot.lang.text('error.missing_name'));
+            ExecutusBot.chatClient.sendMessage(req.channel, Lang._('error.missing_name'));
             return;
         }
 
@@ -30,16 +30,16 @@ class GuildCmd extends ChatCommand {
             .then((guild) => {
                 let embed = new Discord.RichEmbed();
                 embed.setTitle(guild.name);
-                embed.addField(ExecutusBot.lang.text('common.faction'), guild.faction);
-                embed.addField(ExecutusBot.lang.text('common.created'), guild.created.toLocaleDateString());
-                embed.addField(ExecutusBot.lang.text('common.members'), guild.membersCount);
-                embed.addField(ExecutusBot.lang.text('common.leader'), guild.leader);
+                embed.addField(Lang._('common.faction'), guild.faction);
+                embed.addField(Lang._('common.created'), guild.created.toLocaleDateString());
+                embed.addField(Lang._('common.members'), guild.membersCount);
+                embed.addField(Lang._('common.leader'), guild.leader);
 
                 ExecutusBot.chatClient.sendRichMessage(req.channel, embed);
             })
             .catch((err) => {
                 console.log(err.message);
-                ExecutusBot.chatClient.sendMessage(req.channel, ExecutusBot.lang.text('error.not_found'));
+                ExecutusBot.chatClient.sendMessage(req.channel, Lang._('error.not_found'));
             });
     }
 }

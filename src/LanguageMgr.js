@@ -15,6 +15,23 @@ class LanguageMgr {
     }
 
     /**
+     * Tries to load a locale file asynchronously
+     * @param {any} locale
+     * @memberof LanguageMgr
+     */
+    async loadLocale(locale) {
+        if (this._loaded[locale] == undefined) {
+            let path = require('path').join(__dirname, `../conf/lang.${locale}.json`);
+            console.log('path:', path);
+            let file = require(path);
+            let dictionary = {};
+
+            buildDictionary('', file, dictionary);
+            this._loaded[locale] = dictionary;
+        }
+    }
+
+    /**
      * Sets the bot locale and tries to load it from file
      * @param {any} locale
      * @memberof LanguageMgr
@@ -32,20 +49,11 @@ class LanguageMgr {
     }
 
     /**
-     * Tries to load a locale file asynchronously
-     * @param {any} locale
+     * Registers this instance as a global object
      * @memberof LanguageMgr
      */
-    async loadLocale(locale) {
-        if (this._loaded[locale] == undefined) {
-            let path = require('path').join(__dirname, `../../conf/lang.${locale}.json`);
-            console.log('path:', path);
-            let file = require(path);
-            let dictionary = {};
-
-            buildDictionary('', file, dictionary);
-            this._loaded[locale] = dictionary;
-        }
+    register() {
+        global.Lang || (global.Lang = this);
     }
 
     /**
@@ -54,7 +62,7 @@ class LanguageMgr {
      * @return {string}
      * @memberof LanguageMgr
      */
-    text(key) {
+    _(key) {
         try {
             return this._loaded[this._locale][key];
         } catch (err) {

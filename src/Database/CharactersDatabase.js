@@ -107,13 +107,13 @@ function getFactionFromRace(race) {
         case 4:
         case 7:
         case 11:
-            return ExecutusBot.lang.text('common.alliance');
+            return Lang._('common.alliance');
         case 2:
         case 5:
         case 6:
         case 8:
         case 10:
-            return ExecutusBot.lang.text('common.horde');
+            return Lang._('common.horde');
         default:
             return 'Unknown';
     }

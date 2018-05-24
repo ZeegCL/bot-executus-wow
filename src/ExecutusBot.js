@@ -3,7 +3,7 @@ const DiscordClient = require('./Client/DiscordClient');
 const CommandMgr = require('./Core/CommandMgr');
 const ConfigMgr = require('./Core/ConfigMgr');
 const CharactersDatabase = require('./Database/CharactersDatabase');
-const LanguageMgr = require('./Core/LanguageMgr');
+
 /**
  * Defines the bot
  * @class ExecutusBot
@@ -18,7 +18,6 @@ class ExecutusBot {
         this.chatClient = null;
         this.cli = null;
         this.db = {};
-        this.lang = new LanguageMgr();
         this.config = new ConfigMgr();
     }
 
@@ -41,7 +40,7 @@ class ExecutusBot {
         }
 
         // Load texts
-        this.lang.setLocale(this.config.getValue('bot.lang'));
+        Lang.setLocale(this.config.getValue('bot.lang'));
 
         // Create CLI
         this.cli = ReadLine.createInterface({
@@ -62,9 +61,9 @@ class ExecutusBot {
                 this.chatClient.registerHandler('message', (message) => {
                     this.commandMgr.handleMessage(message);
                 });
-                this.chatClient.sendMessage(null, this.lang.text('bot.hello'));
+                this.chatClient.sendMessage(null, Lang._('bot.hello'));
 
-                this.cli.question(this.lang.text('cli.ready'), (input) => {
+                this.cli.question(Lang._('cli.ready'), (input) => {
                     switch (input.toLowerCase()) {
                         case 'exit':
                             this.shutdown();
@@ -85,7 +84,7 @@ class ExecutusBot {
      * @memberof ExecutusBot
      */
     shutdown() {
-        console.log(this.lang.text('cli.shutdown'));
+        console.log(Lang._('cli.shutdown'));
         if (global.ExecutusBot) {
             global.ExecutusBot = undefined;
             delete global.ExecutusBot;
